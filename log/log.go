@@ -13,31 +13,52 @@ func init() {
 	// log.SetLevel(log.DebugLevel)
 }
 
+func pre(desc string, args ...any) []any {
+	a := []any{desc}
+	return append(a, args...)
+}
+
+func Panic(desc string, args ...any) {
+	Log.Panic(pre(desc, args...)...)
+}
+
+func Panicf(desc, format string, args ...any) {
+	Log.Panicf("["+desc+"] "+format, args...)
+}
+
 func Fatal(desc string, args ...any) {
-	a := []any{desc}
-	a = append(a, args...)
-	Log.Fatal(a...)
+	Log.Fatal(pre(desc, args...)...)
 }
 
-func Error(desc string, args ...interface{}) {
-	a := []any{desc}
-	a = append(a, args...)
-	Log.Error(a...)
+func Fatalf(desc, format string, args ...any) {
+	Log.Fatalf("["+desc+"] "+format, args...)
 }
 
-func Warn(desc string, args ...interface{}) {
-	a := []any{desc}
-	a = append(a, args...)
-	Log.Warn(a...)
+func Error(desc string, args ...any) {
+	Log.Error(pre(desc, args...)...)
 }
 
-func Info(desc string, args ...interface{}) {
-	a := []any{desc}
-	a = append(a, args...)
-	Log.Info(a...)
+func Errorf(desc, format string, args ...any) {
+	Log.Errorf("["+desc+"] "+format, args...)
 }
 
-func Debug(desc string, args ...interface{}) {
+func Warn(desc string, args ...any) {
+	Log.Warn(pre(desc, args...)...)
+}
+
+func Warnf(desc, format string, args ...any) {
+	Log.Warnf("["+desc+"] "+format, args...)
+}
+
+func Info(desc string, args ...any) {
+	Log.Info(pre(desc, args...)...)
+}
+
+func Infof(desc, format string, args ...any) {
+	Log.Infof("["+desc+"] "+format, args...)
+}
+
+func Debug(desc string, args ...any) {
 	a := []any{desc}
 	a = append(a, args...)
 	Log.Debug(a...)
