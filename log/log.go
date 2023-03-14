@@ -64,6 +64,10 @@ func Debug(desc string, args ...any) {
 	Log.Debug(a...)
 }
 
+func Debugf(desc, format string, args ...any) {
+	Log.Debugf("["+desc+"] "+format, args...)
+}
+
 func SetLevel(level Log.Level) {
 	Log.SetLevel(level)
 }
