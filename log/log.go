@@ -14,7 +14,7 @@ func init() {
 }
 
 func pre(desc string, args ...any) []any {
-	a := []any{desc}
+	a := []any{"[" + desc + "] "}
 	return append(a, args...)
 }
 
@@ -59,9 +59,7 @@ func Infof(desc, format string, args ...any) {
 }
 
 func Debug(desc string, args ...any) {
-	a := []any{desc}
-	a = append(a, args...)
-	Log.Debug(a...)
+	Log.Debug(pre(desc, args...))
 }
 
 func Debugf(desc, format string, args ...any) {
