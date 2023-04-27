@@ -59,7 +59,7 @@ func Infof(desc, format string, args ...any) {
 }
 
 func Debug(desc string, args ...any) {
-	Log.Debug(pre(desc, args...))
+	Log.Debug(pre(desc, args...)...)
 }
 
 func Debugf(desc, format string, args ...any) {
