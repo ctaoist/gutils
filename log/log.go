@@ -1,6 +1,8 @@
 package log
 
 import (
+	"io"
+
 	Log "github.com/sirupsen/logrus"
 )
 
@@ -68,6 +70,10 @@ func Debugf(desc, format string, args ...any) {
 
 func SetLevel(level Log.Level) {
 	Log.SetLevel(level)
+}
+
+func SetOutput(out io.Writer) {
+	Log.SetOutput(out)
 }
 
 const (
